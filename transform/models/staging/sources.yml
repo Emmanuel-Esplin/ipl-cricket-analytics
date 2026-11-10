@@ -1,0 +1,22 @@
+version: 2
+
+# Only Athena reads these; locally the silver() macro reads the Parquet files directly.
+sources:
+  - name: silver
+    schema: ipl_cricket_analytics_silver
+    tables:
+      - name: matches
+      - name: innings
+      - name: deliveries
+      - name: wickets
+      - name: players
+
+seeds:
+  - name: franchises
+    description: >
+      Cricsheet team name to franchise. Renamed sides (Delhi Daredevils, Kings XI Punjab,
+      Royal Challengers Bangalore) roll up to today's name. Deccan Chargers and Sunrisers
+      Hyderabad are different franchises, so they stay apart.
+    columns:
+      - name: team_name
+        data_tests: [unique, not_null]

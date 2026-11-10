@@ -1,0 +1,256 @@
+{
+  "matches": [
+    {
+      "name": "match_id",
+      "type": "string"
+    },
+    {
+      "name": "season_label",
+      "type": "string"
+    },
+    {
+      "name": "match_date",
+      "type": "string"
+    },
+    {
+      "name": "match_number",
+      "type": "bigint"
+    },
+    {
+      "name": "stage",
+      "type": "string"
+    },
+    {
+      "name": "city",
+      "type": "string"
+    },
+    {
+      "name": "venue",
+      "type": "string"
+    },
+    {
+      "name": "team1",
+      "type": "string"
+    },
+    {
+      "name": "team2",
+      "type": "string"
+    },
+    {
+      "name": "toss_winner",
+      "type": "string"
+    },
+    {
+      "name": "toss_decision",
+      "type": "string"
+    },
+    {
+      "name": "winner",
+      "type": "string"
+    },
+    {
+      "name": "result",
+      "type": "string"
+    },
+    {
+      "name": "win_by_runs",
+      "type": "bigint"
+    },
+    {
+      "name": "win_by_wickets",
+      "type": "bigint"
+    },
+    {
+      "name": "method",
+      "type": "string"
+    },
+    {
+      "name": "super_over_winner",
+      "type": "string"
+    },
+    {
+      "name": "player_of_match",
+      "type": "string"
+    },
+    {
+      "name": "scheduled_overs",
+      "type": "bigint"
+    }
+  ],
+  "innings": [
+    {
+      "name": "match_id",
+      "type": "string"
+    },
+    {
+      "name": "innings_no",
+      "type": "bigint"
+    },
+    {
+      "name": "batting_team",
+      "type": "string"
+    },
+    {
+      "name": "bowling_team",
+      "type": "string"
+    },
+    {
+      "name": "is_super_over",
+      "type": "boolean"
+    },
+    {
+      "name": "target_runs",
+      "type": "bigint"
+    },
+    {
+      "name": "target_overs",
+      "type": "bigint"
+    }
+  ],
+  "deliveries": [
+    {
+      "name": "match_id",
+      "type": "string"
+    },
+    {
+      "name": "innings_no",
+      "type": "bigint"
+    },
+    {
+      "name": "batting_team",
+      "type": "string"
+    },
+    {
+      "name": "bowling_team",
+      "type": "string"
+    },
+    {
+      "name": "is_super_over",
+      "type": "boolean"
+    },
+    {
+      "name": "over_no",
+      "type": "bigint"
+    },
+    {
+      "name": "ball_seq",
+      "type": "bigint"
+    },
+    {
+      "name": "batter_id",
+      "type": "string"
+    },
+    {
+      "name": "batter",
+      "type": "string"
+    },
+    {
+      "name": "non_striker_id",
+      "type": "string"
+    },
+    {
+      "name": "bowler_id",
+      "type": "string"
+    },
+    {
+      "name": "bowler",
+      "type": "string"
+    },
+    {
+      "name": "runs_batter",
+      "type": "bigint"
+    },
+    {
+      "name": "runs_extras",
+      "type": "bigint"
+    },
+    {
+      "name": "runs_total",
+      "type": "bigint"
+    },
+    {
+      "name": "non_boundary",
+      "type": "boolean"
+    },
+    {
+      "name": "wides",
+      "type": "bigint"
+    },
+    {
+      "name": "noballs",
+      "type": "bigint"
+    },
+    {
+      "name": "byes",
+      "type": "bigint"
+    },
+    {
+      "name": "legbyes",
+      "type": "bigint"
+    },
+    {
+      "name": "penalty",
+      "type": "bigint"
+    },
+    {
+      "name": "wickets",
+      "type": "bigint"
+    }
+  ],
+  "wickets": [
+    {
+      "name": "match_id",
+      "type": "string"
+    },
+    {
+      "name": "innings_no",
+      "type": "bigint"
+    },
+    {
+      "name": "over_no",
+      "type": "bigint"
+    },
+    {
+      "name": "ball_seq",
+      "type": "bigint"
+    },
+    {
+      "name": "player_out_id",
+      "type": "string"
+    },
+    {
+      "name": "player_out",
+      "type": "string"
+    },
+    {
+      "name": "kind",
+      "type": "string"
+    },
+    {
+      "name": "bowler_id",
+      "type": "string"
+    },
+    {
+      "name": "fielders",
+      "type": "string"
+    }
+  ],
+  "players": [
+    {
+      "name": "match_id",
+      "type": "string"
+    },
+    {
+      "name": "team",
+      "type": "string"
+    },
+    {
+      "name": "player_id",
+      "type": "string"
+    },
+    {
+      "name": "player_name",
+      "type": "string"
+    }
+  ]
+}
