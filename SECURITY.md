@@ -17,4 +17,14 @@ Report a vulnerability through GitHub's private vulnerability reporting
 
 ## Known findings
 
-None yet. Findings from ECR image scans are recorded here with a date and a decision.
+All are OS packages in the AWS Lambda base image (AL2023), none in the Python dependencies. On
+2026-11-11 each was already the newest version AL2023 offered, so a rebuild can't fix them yet.
+The functions take no inbound traffic and only make outbound HTTPS calls to Cricsheet and AWS.
+
+| Date | Finding | Where | Status |
+| --- | --- | --- | --- |
+| 2026-11-11 | CVE-2026-103242, CVE-2026-84837, CVE-2026-95519 (High) | `rpm`, `rpm-libs` | Package manager, not used at runtime. Rebuild when fixed. |
+| 2026-11-11 | CVE-2026-86805 (High) | `glibc` | No fixed package yet. Rebuild when AL2023 ships one. |
+| 2026-11-11 | CVE-2026-18924, CVE-2026-19931 (Medium) | `curl-minimal`, `libcurl-minimal` | The pipeline uses httpx, not curl. Rebuild when fixed. |
+| 2026-11-11 | CVE-2026-114406 (Medium): weak-key eMudhra roots | `ca-certificates` | HTTP clients use certifi's bundle, not the system store. |
+| 2026-11-11 | CVE-2026-76781 (Medium) | `libxml2` | The pipeline parses no XML. |
