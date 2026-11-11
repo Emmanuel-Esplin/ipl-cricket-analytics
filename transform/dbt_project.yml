@@ -1,0 +1,33 @@
+name: ipl_cricket_analytics
+version: "1.0.0"
+config-version: 2
+profile: ipl_cricket_analytics
+
+model-paths: ["models"]
+seed-paths: ["seeds"]
+test-paths: ["tests"]
+macro-paths: ["macros"]
+
+# Every model runs on DuckDB locally and on Athena in AWS, so SQL sticks to what both support:
+# no QUALIFY, arg_max or any_value. table_type and format only apply on Athena (Iceberg).
+models:
+  ipl_cricket_analytics:
+    +table_type: iceberg
+    +format: parquet
+    staging:
+      +materialized: view
+    intermediate:
+      +materialized: table
+    marts:
+      +materialized: table
+
+seeds:
+  ipl_cricket_analytics:
+    franchises:
+      +column_types:
+        team_name: varchar
+        franchise: varchar
+        short_name: varchar
+
+vars:
+  silver_dir: "{{ env_var('IPL_DATA_DIR', '../data') }}/silver"

@@ -1,0 +1,49 @@
+version: 2
+
+models:
+  - name: mart_team_season_results
+    description: Wins, losses and no-results per franchise per season.
+    data_tests:
+      - unique_combination: {arguments: {columns: [season, team]}}
+    columns:
+      - name: matches
+        data_tests:
+          - expression_true: {arguments: {expression: "matches = wins + losses + no_results"}}
+
+  - name: mart_team_match_batting
+    description: Each side's batting per match, the result alongside; strike rate per game.
+    data_tests:
+      - unique_combination: {arguments: {columns: [match_id, innings_no]}}
+    columns:
+      - name: outcome
+        data_tests:
+          - accepted_values: {arguments: {values: ['Won', 'Lost', 'No result']}}
+
+  - name: mart_batter_innings
+    description: Every batter's innings with match date and result.
+    data_tests:
+      - unique_combination: {arguments: {columns: [match_id, innings_no, batter_id]}}
+
+  - name: mart_batter_season
+    description: Batting per player, season and franchise.
+    data_tests:
+      - unique_combination: {arguments: {columns: [season, team, batter_id]}}
+
+  - name: mart_bowler_season
+    description: Bowling per player, season and franchise, with best figures.
+    data_tests:
+      - unique_combination: {arguments: {columns: [season, team, bowler_id]}}
+
+  - name: mart_phase_strike_rates
+    description: Batting by phase (powerplay, middle, death) per franchise and season.
+    data_tests:
+      - unique_combination: {arguments: {columns: [season, team, phase]}}
+    columns:
+      - name: phase
+        data_tests:
+          - accepted_values: {arguments: {values: ['Powerplay', 'Middle', 'Death']}}
+
+  - name: mart_matchups
+    description: Batter against bowler across all seasons.
+    data_tests:
+      - unique_combination: {arguments: {columns: [batter_id, bowler_id]}}
